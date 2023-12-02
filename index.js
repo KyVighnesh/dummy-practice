@@ -83,9 +83,13 @@ app.post('/signin',(req,res,next)=> {
                 
                 else {
 
-                   res.json({
-                    Error:"Incorrect Username or Password"
-                   })
+                    res.json ({
+
+                        error:"Incorrect Username or Password"
+
+
+                    })
+                }
 
 
             });
