@@ -15,6 +15,7 @@ app.use(cors())
 
 app.use(express.json())
 
+// get data
 
 app.get('/',(req,res)=> {
 
@@ -27,6 +28,8 @@ app.get('/',(req,res)=> {
 
 
 // sign up request handling
+
+
 app.post('/signup',(req,res)=> {
 
     User.findOne({email:req.body.email}).then((data)=> {
@@ -79,7 +82,13 @@ app.post('/signin',(req,res,next)=> {
                 }
                 
                 else {
-                    next(new Error("Incorrect Username or Password"))
+
+                    res.json ({
+
+                        error:next(new Error("Incorrect Username or Password"))
+
+
+                    })
                 }
 
 
