@@ -16,6 +16,16 @@ app.use(cors())
 app.use(express.json())
 
 
+app.get('/',(req,res)=> {
+
+    User.find().then((data)=>{
+        res.json({
+            data
+        })
+    })
+})
+
+
 // sign up request handling
 app.post('/signup',(req,res)=> {
 
